@@ -7,7 +7,7 @@ These animation use gganimate which in turn uses ggplot, a popular R package for
 ## What do I need to follow them?
 R, R Studio and a few packages. More specifically, you'll need R version 3.1 or greater (tested on 3.4.3, documentation indicates should work on 3.1). The packages you'll need are *gapminder, gifski, png, tidyverse* and *RColorBrewer*. ggplot, which gganimate depends on, will need to be version 3.0 or greater, so if you have an older version you might need to update that.
 
-Instructions on how to install packages are included in the lab01 document. All of the instructions are available in the Wiki section
+Instructions on how to install packages are included in the lab01 instructions, in the Wiki section.
 
 ## So what do these animations look like?
 
