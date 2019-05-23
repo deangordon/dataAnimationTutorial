@@ -13,7 +13,7 @@ gva$value <- parse_number(gva$value)
 gva <- gva %>%
   group_by(Year) %>%
   # The * 1.0 makes it possible to have non-integer ranks while sliding
-  mutate(rank = min_rank(-value) * 1.0 ) %>%
+  mutate(rank = rank(-value, ties.method="random") * 1.0 ) %>%
   filter(rank <= 20)
 
 gva14 <- gva %>%
@@ -33,7 +33,7 @@ p <- ggplot(gva, aes(x = rank, fill = as.factor(SIC07.description))) +
         axis.ticks.y = element_blank(),  # These relate to the axes post-flip
         axis.text.y  = element_blank()) +  # These relate to the axes post-flip) 
   geom_text(aes(y = 0, label = paste(SIC07.description, " ")), vjust = 0.2, hjust=1, color = ifelse(gva$SIC07.description %in% interesting,"black","grey")) +
-    labs(title='{closest_state}', x = "", y = "Chained volume in 2016 £million") +
+    labs(title='{closest_state}', x = "", y = "Chained volume in 2016 Â£million") +
   
   transition_states(Year, transition_length = 3, state_length = 1, wrap=FALSE) +
   ease_aes('cubic-in-out')
